@@ -212,6 +212,57 @@ input[type=range]{width:100%;accent-color:#fff}
 .chips+.mealr{margin-top:8px}.mealr{display:grid;grid-template-columns:76px 1fr auto;gap:10px;padding:11px 0;border-bottom:1px solid #1f1f1f;align-items:baseline}
 .mealr b{font-weight:500;font-size:14px}.mealr span{font-size:12px;color:#737373}
 
+:root{--c-strength:#F0894E;--c-cardio:#EE6470;--c-mood:#A88CF4;--c-sleep:#8296F6;--c-nutrition:#A9D06C;--c-hydration:#52C7DD;--accent:#fafafa;--ink:#0a0a0a;
+ --s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--spring:cubic-bezier(.32,1.18,.42,1);--ease:cubic-bezier(.2,.9,.25,1)}
+[data-t=strength],[data-d=strength]{--accent:var(--c-strength)}[data-t=cardio],[data-d=cardio]{--accent:var(--c-cardio)}[data-t=mood],[data-d=mood]{--accent:var(--c-mood)}
+[data-t=sleep],[data-d=sleep]{--accent:var(--c-sleep)}[data-t=nutrition],[data-d=nutrition]{--accent:var(--c-nutrition)}[data-t=hydration],[data-d=hydration]{--accent:var(--c-hydration)}
+/* wheel colouring */
+.readout .k,.readout .v{transition:color .3s var(--ease)!important}
+.seg .prog{transition:stroke .3s var(--ease),opacity .3s}
+.ico .icb,.ico g{transition:stroke .3s var(--ease),fill .3s}
+.plus{transition:transform .6s var(--spring),box-shadow .3s,background .3s!important}.plus.drag{transition:box-shadow .3s,background .3s!important}
+/* accent scope: tool + dash */
+:is(.tool,.dash) .btn.fill{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+:is(.tool,.dash) .btn:not(.fill):not(.ghost){border-color:color-mix(in srgb,var(--accent) 70%,#000)}
+:is(.tool,.dash) .chipx.on{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+:is(.tool,.dash) .mbar i{background:var(--accent)}
+:is(.tool,.dash) .toggle.on{background:var(--accent)}
+:is(.tool,.dash) .card.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 6%,#050505)}
+:is(.tool,.dash) .huge{color:var(--accent)}
+:is(.tool,.dash) .inp:focus{border-color:var(--accent)}
+:is(.tool,.dash) input[type=range]{accent-color:var(--accent)}
+:is(.tool,.dash) .ck.on,.dash .chk.on i,.tool .moods div.on,.dash .play.on{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.tool .moods div.on{color:var(--ink)}
+.tool .rest{border-color:var(--accent)}.tool .rest b{color:var(--accent)}
+.tool .setr .mono{color:var(--accent)!important}
+#ttl,.dhead h2{color:var(--accent);transition:color .3s}
+.thead .grab{background:color-mix(in srgb,var(--accent) 55%,#222)}
+.dsec>h4{border-bottom-color:color-mix(in srgb,var(--accent) 80%,#000)}
+.dash .bdot{background:var(--accent);box-shadow:0 0 18px var(--accent)}.dash .bfill{background:color-mix(in srgb,var(--accent) 22%,transparent)}.dash .bbox{border-color:color-mix(in srgb,var(--accent) 45%,#222)}
+.dash .eq i{background:var(--accent)}
+.dash .figure{background:radial-gradient(closest-side,color-mix(in srgb,var(--accent) 22%,#000),#000 75%)}
+.dash .figure img{filter:drop-shadow(0 0 18px color-mix(in srgb,var(--accent) 35%,transparent))}
+.dash .det[open] summary b{color:var(--accent)}.dash .det[open] summary:after{color:var(--accent)}
+.dash .statg b,.tool .statg b{color:#fafafa}
+.dback{color:var(--accent)}
+/* polish */
+.tool{transition:transform .6s var(--spring)}.dash{transition:transform .55s var(--spring)}
+.page{transition:opacity .3s var(--ease),transform .5s var(--spring)}
+.btn{min-height:44px;transition:transform .15s var(--ease),background .2s,opacity .2s}.btn.sm{min-height:36px}
+.btn:active,.chipx:active,.x:active,.ck:active,.play:active,.toggle:active,.tabbar a:active,.moods div:active,.chk:active,.dback:active{transform:scale(.95)}
+.chipx,.x,.ck,.play,.toggle,.btn.sm,.dback,.tabbar a{position:relative;transition:transform .15s var(--ease),background .2s,color .2s,border-color .2s}
+.chipx::before,.x::before,.ck::before,.play::before,.toggle::before,.btn.sm::before{content:"";position:absolute;inset:-6px -2px}
+.chipx{min-height:34px;display:inline-flex;align-items:center}
+.x{width:34px;height:34px}
+.lrow,.det summary{min-height:48px}
+.det summary:active{opacity:.7}
+.hair,.lrow,.det,.chk,.mealr{border-color:#1a1a1a}
+.blabel{padding:0 18px;display:flex;flex-direction:column;align-items:center;justify-content:center}.blabel small{max-width:120px;margin:6px auto 0;line-height:1.5}.dash .bfill{opacity:.9}
+.empty{border:1px dashed #2a2a2a;border-radius:2px;padding:22px 16px;text-align:center;color:#737373;font-size:13px;margin-top:10px}
+.empty b{display:block;color:#d4d4d4;font-weight:500;font-size:15px;margin:8px 0 2px}
+.dhead .mono{margin-bottom:2px}
+.thead h3,.dhead h2{padding-bottom:2px}
+
 @media (max-width:500px){.dhead{padding-top:calc(env(safe-area-inset-top) + 8px)}}
 @media (max-width:500px){html,body{background:#000;padding:0;overflow:hidden;height:100%}body{display:block}
 .phone{width:100vw;height:100vh;height:100dvh;border:0;border-radius:0;box-shadow:none}
@@ -309,6 +360,19 @@ const pt=(a,r)=>[C+r*Math.cos((a-90)*Math.PI/180),C+r*Math.sin((a-90)*Math.PI/18
 const arc=(a0,a1,r)=>{if(a1-a0<.01)a1=a0+.01;const[x0,y0]=pt(a0,r),[x1,y1]=pt(a1,r);return`M${x0} ${y0} A${r} ${r} 0 ${a1-a0>180?1:0} 1 ${x1} ${y1}`};
 $('#defs').innerHTML='<filter id="gl" filterUnits="userSpaceOnUse" x="-40" y="-40" width="434" height="434"><feGaussianBlur stdDeviation="7"/></filter><pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#000"/><rect width="2.2" height="5" fill="#fff"/></pattern><pattern id="pdots" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#000"/><circle cx="2.5" cy="2.5" r="1.4" fill="#fff"/></pattern><pattern id="lines" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#000"/><rect width="4" height="1.6" fill="#fff"/></pattern>';
 const PAT=['#fff','url(#hatch)','rgba(255,255,255,.55)','url(#pdots)','rgba(255,255,255,.3)','url(#lines)'];
+const COL={strength:'#F0894E',cardio:'#EE6470',mood:'#A88CF4',sleep:'#8296F6',nutrition:'#A9D06C',hydration:'#52C7DD'};
+const SECS=Object.keys(COL);
+(function(){let h='';SECS.forEach(id=>{const c=COL[id];h+=`<pattern id="hatch-${id}" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="#000"/><rect width="2.2" height="5" fill="${c}"/></pattern><pattern id="pdots-${id}" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#000"/><circle cx="2.5" cy="2.5" r="1.4" fill="${c}"/></pattern><pattern id="lines-${id}" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#000"/><rect width="4" height="1.6" fill="${c}"/></pattern>`});$('#defs').insertAdjacentHTML('beforeend',h)})();
+const patC=(i,id)=>{const c=COL[id];return PAT[i].replace('#fff',c).replace('rgba(255,255,255,.55)',c+'D9').replace('rgba(255,255,255,.3)',c+'A6').replace(/url\(#(\w+)\)/,`url(#$1-${id})`)};
+const tint=(html,id)=>{const c=COL[id];return html.replace(/url\(#(hatch|pdots|lines)\)/g,`url(#$1-${id})`).replace(/stroke="#fff"/g,`stroke="${c}"`).replace(/fill="#fff"/g,`fill="${c}"`)};
+function paint(i){const segs=[...document.querySelectorAll('#segs .seg')],icos=[...document.querySelectorAll('#segs .ico')];
+ segs.forEach((g,j)=>{const id=g.dataset.seg,on=j===i,c=COL[id];const pr=g.querySelector('.prog');if(pr)pr.setAttribute('stroke',on?patC(j,id):PAT[j]);
+  const tk=g.querySelectorAll('path')[1];tk.setAttribute('stroke',on?c:'#fff');tk.setAttribute('stroke-opacity',on?.22:.1);const gl=g.querySelector('.glow');gl.setAttribute('stroke',on?c:'#fff');const ic=icos[j];if(ic){const b=ic.querySelector('.icb');b.setAttribute('stroke',on?c:'#fff');b.setAttribute('stroke-opacity',on?1:.5);ic.querySelector('g').setAttribute('stroke',on?c:'#fff')}});
+ const c=i>=0?COL[segs[i].dataset.seg]:null,rk=$('#rk'),rv=$('#rv'),pl=$('#plus');
+ [rk,rv].forEach(e=>c?e.style.setProperty('color',c,'important'):e.style.removeProperty('color'));
+ pl.style.background=c?`linear-gradient(180deg,color-mix(in srgb,${c} 18%,#fff),color-mix(in srgb,${c} 38%,#d4d4d8))`:'';
+ pl.style.boxShadow=c?`0 0 0 6px ${c}2e,0 0 36px ${c}66,0 10px 30px rgba(0,0,0,.6)`:''}
+
 let TD,cur=-1,drag=false,moved=false;
 function renderWheel(){const segs=$('#segs');let h='',ic='';
  for(let i=0;i<72;i++){const[a,b]=pt(i*5,R-24),[c,d]=pt(i*5,R-(i%6?20:16));h+=`<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" stroke="#3f3f46"/>`}
@@ -323,7 +387,7 @@ function renderWheel(){const segs=$('#segs');let h='',ic='';
 function readout(){const rk=$('#rk'),rv=$('#rv'),rs=$('#rs');
  if(cur<0){const sc=Math.round(TD.segs.reduce((a,s)=>a+Math.min(1,s.p),0)/6*100);rk.textContent=drag?'Release to cancel':'Today';rv.textContent=sc;rs.textContent='Overall score'}
  else{const s=TD.segs[cur];rk.textContent=s.n;rv.textContent=s.v;rs.textContent=s.s}}
-function hi(i){if(i===cur)return;cur=i;document.querySelectorAll('#segs .seg').forEach((g,j)=>{g.classList.toggle('on',j===i);g.querySelector('.glow').setAttribute('opacity',j===i?.6:0)});$('#wheel').classList.toggle('active',i>=0);readout();
+function hi(i){if(i===cur)return;cur=i;document.querySelectorAll('#segs .seg').forEach((g,j)=>{g.classList.toggle('on',j===i);g.querySelector('.glow').setAttribute('opacity',j===i?.6:0)});$('#wheel').classList.toggle('active',i>=0);readout();paint(i);
  if(i>=0){$('#plus').animate([{scale:1},{scale:1.12},{scale:1}],{duration:180});navigator.vibrate&&navigator.vibrate(8)}}
 const plus=$('#plus');let sx,sy;
 plus.addEventListener('pointerdown',e=>{drag=true;moved=false;sx=e.clientX;sy=e.clientY;plus.setPointerCapture(e.pointerId);plus.classList.add('drag');readout()});
@@ -331,7 +395,7 @@ plus.addEventListener('pointermove',e=>{if(!drag)return;let dx=e.clientX-sx,dy=e
  plus.style.transform=`translate(${dx}px,${dy}px) scale(${d>48?.82:1})`;if(d<48)hi(-1);else hi(Math.floor(((Math.atan2(dy,dx)*180/Math.PI+90+360)%360)/60))});
 function endDrag(){if(!drag)return;drag=false;plus.classList.remove('drag');plus.style.transform='';const i=cur;hi(-1);if(i>=0)openTool(TD.segs[i].id)}
 plus.addEventListener('pointerup',endDrag);plus.addEventListener('pointercancel',endDrag);
-$('#segs').addEventListener('click',e=>{const ic=e.target.closest('.ico');if(ic&&!drag){openDash(ic.dataset.dash);return}const g=e.target.closest('.seg');if(g&&!drag)openTool(g.dataset.seg)});
+$('#segs').addEventListener('click',e=>{const ic=e.target.closest('.ico');if(ic&&!drag){openDash(ic.dataset.dash);return}const g=e.target.closest('.seg');if(g&&!drag){const i=+g.dataset.i;hi(i);setTimeout(()=>{openTool(g.dataset.seg);setTimeout(()=>hi(-1),350)},260)}});
 // ---------- bento
 function renderBento(){const T=TD,g=st.goals,D=days7();const mins=D.map(d=>dayMin(d.k)),mx=Math.max(30,...mins),tot=mins.reduce((a,b)=>a+b,0);
  const sl=D.map(d=>(st.sleep.find(s=>s.date===d.k)||{}).min||0),sv=sl.filter(Boolean),sMin=Math.min(...sv,360)-20,sMax=Math.max(...sv,500)+10;
@@ -377,7 +441,7 @@ function renderActivity(){const L=histList().filter(e=>hfilter==='All'||e.k===hf
  L.forEach(e=>{const d=isToday(e.ts)?'Today':dstr(e.ts);if(d!==last){h+=`<div class="mono" style="margin-top:20px;padding-bottom:6px;border-bottom:1px solid #262626">${d}</div>`;last=d}
   h+=`<div class="lrow">${sw(KI[e.k])}<div class="g"><b>${esc(e.t)}</b><span>${esc(e.d)}</span></div><span class="mono">${e.k}</span></div>`});
  $('#p-activity').innerHTML=`<div class="date">History</div><div class="ptitle">Activity</div><div class="mono" style="margin-bottom:16px">${L.length} entries · last 7 days</div>
- <div class="chips">${['All',...Object.keys(KI)].map(k=>`<span class="chipx${k===hfilter?' on':''}" data-hf="${k}">${k}</span>`).join('')}</div>${h||'<p style="color:#737373;margin-top:30px">Nothing logged yet.</p>'}`}
+ <div class="chips">${['All',...Object.keys(KI)].map(k=>`<span class="chipx${k===hfilter?' on':''}" data-hf="${k}">${k}</span>`).join('')}</div>${h||'<div class="empty"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#525252" stroke-width="1.5"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><b>Nothing here yet</b>Drag + on Home to log your first entry.</div>'}`}
 function renderInsights(){const D=days7(),g=st.goals;const avg=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:0;
  const sl=st.sleep.filter(s=>D.some(d=>d.k===s.date)).map(s=>s.min),kc=D.map(d=>st.food.filter(f=>dk(f.ts)===d.k).reduce((a,b)=>a+b.kcal,0)),wa=D.map(d=>st.water.filter(f=>dk(f.ts)===d.k).reduce((a,b)=>a+b.ml,0)),mo=st.mood.filter(m=>D.some(d=>d.k===dk(m.ts))).map(m=>m.mood);
  const mins=D.map(d=>dayMin(d.k)),mx=Math.max(...mins,30),vol=st.strength.filter(s=>D.some(d=>d.k===dk(s.ts))).reduce((a,b)=>a+b.vol,0);
@@ -425,14 +489,14 @@ $('#tclose').onclick=closeTool;$('#scrim').onclick=closeTool;
 (()=>{const h=$('#thead'),tl=$('#tool');let y0=null,dy=0;h.addEventListener('pointerdown',e=>{if(e.target.closest('#tclose'))return;y0=e.clientY;dy=0;h.setPointerCapture(e.pointerId);tl.classList.add('drag')});
  h.addEventListener('pointermove',e=>{if(y0===null)return;dy=Math.max(0,e.clientY-y0);tl.style.transform=`translateY(${dy}px)`});
  const up=()=>{if(y0===null)return;y0=null;tl.classList.remove('drag');tl.style.transform='';if(dy>110)closeTool()};h.addEventListener('pointerup',up);h.addEventListener('pointercancel',up)})();
-function renderTool(){tb.innerHTML=({strength:tStrength,cardio:tCardio,mood:tMood,sleep:tSleep,nutrition:tNutrition,hydration:tHydration})[tool]()}
+function renderTool(){tb.innerHTML=tint(({strength:tStrength,cardio:tCardio,mood:tMood,sleep:tSleep,nutrition:tNutrition,hydration:tHydration})[tool](),tool)}
 const A={}; // actions
 // strength
 const vol=s=>s.ex.reduce((a,e)=>a+e.sets.filter(x=>x.d).reduce((b,x)=>b+x.w*x.r,0),0),doneSets=s=>s.ex.reduce((a,e)=>a+e.sets.filter(x=>x.d).length,0);
 function tStrength(){const s=st.live.s;
  if(view.summary){const m=view.summary;return`<div class="mono">Workout complete</div><div class="huge" style="margin:10px 0 16px">${clk(m.dur)}</div><div class="statg"><div><span class="mono">Sets</span><b>${m.sets}</b></div><div><span class="mono">Volume</span><b>${fmtN(m.vol)}</b></div><div><span class="mono">Exercises</span><b>${m.ex.length}</b></div></div>${m.ex.map(n=>`<div class="lrow"><div class="g"><b>${esc(n)}</b></div></div>`).join('')}<button class="btn fill" style="width:100%;margin-top:22px" onclick="closeTool()">Done</button>`}
  if(!s){const last=st.strength.slice().sort((a,b)=>b.ts-a.ts)[0];return`<div class="mono">Ready</div><div class="huge" style="margin:10px 0 6px">0:00</div><p style="color:#737373;font-size:13px;margin-bottom:18px">${last?`Last: ${dstr(last.ts)} · ${last.sets} sets · ${fmtN(last.vol)} ${st.unit}`:''}</p><button class="btn fill" style="width:100%" data-test="start-workout" onclick="A.sStart()">Start workout</button>
-  <div class="lbl mono">Today</div>${st.strength.filter(x=>isToday(x.ts)).map(x=>`<div class="lrow"><div class="g"><b>${x.ex.join(', ')}</b><span>${x.sets} sets · ${fmtN(x.vol)} ${st.unit}</span></div></div>`).join('')||'<p style="color:#737373;font-size:13px">No sessions yet.</p>'}`}
+  <div class="lbl mono">Today</div>${st.strength.filter(x=>isToday(x.ts)).map(x=>`<div class="lrow"><div class="g"><b>${x.ex.join(', ')}</b><span>${x.sets} sets · ${fmtN(x.vol)} ${st.unit}</span></div></div>`).join('')||'<div class="empty"><b>No sessions today</b>Start a workout to track sets, rest and volume.</div>'}`}
  const rest=s.restEnd&&s.restEnd>Date.now();
  return`<div class="row" style="align-items:flex-end"><div><div class="mono">Session</div><div class="huge" id="s-el">${clk((Date.now()-s.start)/1000)}</div></div><div style="text-align:right"><div class="mono">Volume</div><div style="font-size:26px;font-weight:500;letter-spacing:-.04em" id="s-vol">${fmtN(vol(s))} ${st.unit}</div><div class="mono">${doneSets(s)} set${doneSets(s)==1?'':'s'} done</div></div></div>
  <div class="rest" id="s-rest" style="display:${rest?'flex':'none'}"><div><div class="mono" style="color:#a3a3a3">Rest</div><b id="s-rt">${rest?clk((s.restEnd-Date.now())/1000):''}</b></div><div style="display:flex;gap:6px"><button class="btn sm" onclick="A.rest(30)">+30s</button><button class="btn sm fill" onclick="A.rest(0)">Skip</button></div></div>
@@ -519,7 +583,7 @@ function tHydration(){const T=today(),g=st.goals.water,p=Math.min(1,T.ml/g),L=st
  <div><div class="mono">Today</div><div class="huge" data-test="ml">${fmtN(T.ml)}</div><div class="mono">ml of ${fmtN(g)} · ${Math.round(p*100)}%</div><div style="margin-top:10px;font-size:13px;color:#a3a3a3">${(T.ml/250).toFixed(1)} / ${g/250} cups</div></div></div>
  <div class="row3" style="margin-top:18px"><button class="btn fill" data-test="cup" onclick="A.w(250)">+ Cup<br>250</button><button class="btn" onclick="A.w(500)">+ Bottle<br>500</button><button class="btn ghost" onclick="A.wUndo()" ${L.length?'':'disabled'}>Undo<br>last</button></div>
  <div style="display:flex;gap:6px;margin-top:8px"><input class="inp" id="w-c" type="number" placeholder="Custom ml"><button class="btn sm" onclick="A.w(+$('#w-c').value)">Add</button></div>
- <div class="lbl mono">Log</div>${L.map(w=>`<div class="lrow"><span class="mono" style="color:#fff;min-width:64px">${tstr(w.ts)}</span><div class="g"><b>${w.ml} ml</b></div><span class="x" onclick="A.wDel(${st.water.indexOf(w)})">×</span></div>`).join('')||'<p style="color:#737373;font-size:13px">No water logged.</p>'}`}
+ <div class="lbl mono">Log</div>${L.map(w=>`<div class="lrow"><span class="mono" style="color:#fff;min-width:64px">${tstr(w.ts)}</span><div class="g"><b>${w.ml} ml</b></div><span class="x" onclick="A.wDel(${st.water.indexOf(w)})">×</span></div>`).join('')||'<div class="empty"><b>Glass is empty</b>Tap + Cup to log your first 250 ml.</div>'}`}
 A.w=ml=>{if(!(ml>0&&ml<3000)){toast('Enter 1–3000 ml');return}st.water.push({ts:Date.now(),ml:Math.round(ml)});save();renderTool();renderHome();toast(`+${ml} ml`)};
 A.wUndo=()=>{const L=st.water.filter(w=>isToday(w.ts)).sort((a,b)=>b.ts-a.ts);if(L[0]){st.water.splice(st.water.indexOf(L[0]),1);save();renderTool();renderHome();toast('Undone')}};
 A.wDel=i=>{st.water.splice(i,1);save();renderTool();renderHome()};
@@ -566,7 +630,7 @@ const sec=(t,s,body)=>`<div class="dsec"><h4>${t}<span>${s||''}</span></h4>${bod
 const pbar=(p)=>`<div class="mbar"><i style="width:${Math.max(0,Math.min(100,p*100))}%"></i></div>`;
 function openDash(id){dash=id;dv={mus:'All',q:'',brOn:false};stopBreath();$('#dttl').textContent=TITLES[id][1];$('#dsub').textContent='Section · Programs & guides';renderDash();$('#dbody').scrollTop=0;$('#dash').dataset.d=id;$('#dash').classList.add('show')}
 function closeDash(){stopBreath();$('#dash').classList.remove('show');dash=null}
-function renderDash(){const f={strength:dStrength,cardio:dCardio,mood:dMood,sleep:dSleep,nutrition:dNutrition,hydration:dHydration}[dash];$('#dbody').innerHTML=f()}
+function renderDash(){const f={strength:dStrength,cardio:dCardio,mood:dMood,sleep:dSleep,nutrition:dNutrition,hydration:dHydration}[dash];$('#dbody').innerHTML=tint(f(),dash)}
 const D={};
 // --- strength
 function libList(){const q=dv.q.toLowerCase();const L=LIB.filter(e=>(dv.mus==='All'||e[1]===dv.mus)&&(!q||e[0].toLowerCase().includes(q)||e[2].toLowerCase().includes(q)));
